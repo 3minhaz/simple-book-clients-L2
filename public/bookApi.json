@@ -1,283 +1,322 @@
 [
-    {
-      "title": "Digital Logic Design",
-      "genre": "Computer Science",
-      "publicationDate": "02-29-1990",
-      "author": "Morris Mano",
-      "image": "https://m.media-amazon.com/images/I/71h9CawUxpL._AC_UY218_.jpg"
-    },
-    {
-      "title": "To Kill a Mockingbird",
-      "genre": "Fiction",
-      "publicationDate": "07-11-1960",
-      "author": "Harper Lee",
-      "image": "https://m.media-amazon.com/images/I/81R9VPGFqTL._AC_UY218_.jpg"
-    },
-    {
-      "title": "The Great Gatsby",
-      "genre": "Classic",
-      "publicationDate": "04-10-1925",
-      "author": "F. Scott Fitzgerald",
-      "image": "https://m.media-amazon.com/images/I/91pJQMkd5dL._AC_UY218_.jpg"
-    },
-    {
-      "title": "Pride and Prejudice",
-      "genre": "Romance",
-      "publicationDate": "01-28-1813",
-      "author": "Jane Austen",
-      "image": "https://m.media-amazon.com/images/I/71PNGYHykrL._AC_UY218_.jpg"
-    },
-    {
-      "title": "1984",
-      "genre": "Dystopian",
-      "publicationDate": "06-08-1949",
-      "author": "George Orwell",
-      "image": "https://m.media-amazon.com/images/I/61B37ET6WiL._AC_UY218_.jpg"
-    },
-    {
-      "title": "The Catcher in the Rye",
-      "genre": "Coming-of-Age",
-      "publicationDate": "07-16-1951",
-      "author": "J.D. Salinger",
-      "image": "https://m.media-amazon.com/images/I/813yHPADcjL._AC_UY218_.jpg"
-    },
-    {
-      "title": "Harry Potter and the Sorcerer's Stone",
-      "genre": "Fantasy",
-      "publicationDate": "06-26-1997",
-      "author": "J.K. Rowling",
-      "image": "https://m.media-amazon.com/images/I/91eIanmV7KL._AC_UY218_.jpg"
-    },
-    {
-      "title": "To the Lighthouse",
-      "genre": "Modernist",
-      "publicationDate": "05-05-1927",
-      "author": "Virginia Woolf",
-      "image": "https://m.media-amazon.com/images/I/81pzRUTin6L._AC_UY218_.jpg"
-    },
-    {
-      "title": "The Hobbit",
-      "genre": "Fantasy",
-      "publicationDate": "09-21-1937",
-      "author": "J.R.R. Tolkien",
-      "image": "https://m.media-amazon.com/images/I/91vwHMt+x7L._AC_UY218_.jpg"
-    },
-    {
-      "title": "Moby-Dick",
-      "genre": "Adventure",
-      "publicationDate": "10-18-1851",
-      "author": "Herman Melville",
-      "image": "https://m.media-amazon.com/images/I/81s0B6NYXML._AC_UY218_.jpg"
-    },
-    {
-      "title": "Jane Eyre",
-      "genre": "Gothic",
-      "publicationDate": "10-16-1847",
-      "author": "Charlotte Brontë",
-      "image": "https://m.media-amazon.com/images/I/41ZLnc34EiL._AC_UY218_.jpg"
-    },
-    {
-      "title": "The Lord of the Rings",
-      "genre": "Fantasy",
-      "publicationDate": "07-29-1954",
-      "author": "J.R.R. Tolkien",
-      "image": "https://m.media-amazon.com/images/I/71oWaTEjEkL._AC_UY218_.jpg"
-    },
-    {
-      "title": "The Odyssey",
-      "genre": "Epic",
-      "publicationDate": "08-12-800 BCE",
-      "author": "Homer",
-      "image": "https://m.media-amazon.com/images/I/71tvrdlSpTL._AC_UY218_.jpg"
-    },
-    {
-      "title": "Crime and Punishment",
-      "genre": "Psychological",
-      "publicationDate": "01-01-1866",
-      "author": "Fyodor Dostoevsky",
-      "image": "https://m.media-amazon.com/images/I/81jpReBKPeL._AC_UY218_.jpg"
-    },
-    {
-      "title": "The Scarlet Letter",
-      "genre": "Romance",
-      "publicationDate": "03-16-1850",
-      "author": "Nathaniel Hawthorne",
-      "image": "https://m.media-amazon.com/images/I/71ZvnK+4JiL._AC_UY218_.jpg"
-    },
-    {
-      "title": "The Alchemist",
-      "genre": "Fantasy",
-      "publicationDate": "01-01-1988",
-      "author": "Paulo Coelho",
-      "image": "https://m.media-amazon.com/images/I/811dDmyv-pL._AC_UY218_.jpg"
-    },
-    {
-      "title": "The Adventures of Huckleberry Finn",
-      "genre": "Adventure",
-      "publicationDate": "12-10-1884",
-      "author": "Mark Twain",
-      "image": "https://m.media-amazon.com/images/I/71jpReBKPeL._AC_UY218_.jpg"
-    },
-    {
-      "title": "Frankenstein",
-      "genre": "Gothic",
-      "publicationDate": "01-01-1818",
-      "author": "Mary Shelley",
-      "image": "https://m.media-amazon.com/images/I/71ZvnK+4JiL._AC_UY218_.jpg"
-    },
-    {
-      "title": "The Picture of Dorian Gray",
-      "genre": "Gothic",
-      "publicationDate": "07-01-1890",
-      "author": "Oscar Wilde",
-      "image": "https://m.media-amazon.com/images/I/71tvrdlSpTL._AC_UY218_.jpg"
-    },
-    {
-      "title": "Brave New World",
-      "genre": "Dystopian",
-      "publicationDate": "02-17-1932",
-      "author": "Aldous Huxley",
-      "image": "https://m.media-amazon.com/images/I/81jpReBKPeL._AC_UY218_.jpg"
-    },
-    {
-      "title": "The Book Thief",
-      "genre": "Historical Fiction",
-      "publicationDate": "03-14-2005",
-      "author": "Markus Zusak",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/71N1BPViQ7L._AC_UL254_SR254,254_.jpg"
-    },
-    {
-      "title": "The Chronicles of Narnia",
-      "genre": "Fantasy",
-      "publicationDate": "10-16-1950",
-      "author": "C.S. Lewis",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/71h5+dpAriL._AC_UL254_SR254,254_.jpg"
-    },
-    {
-      "title": "The Kite Runner",
-      "genre": "Historical Fiction",
-      "publicationDate": "05-29-2003",
-      "author": "Khaled Hosseini",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/71aXWhr9tTL._AC_UL254_SR254,254_.jpg"
-    },
-    {
-      "title": "Gone with the Wind",
-      "genre": "Historical Fiction",
-      "publicationDate": "06-30-1936",
-      "author": "Margaret Mitchell",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/71qD06IXszL._AC_UL254_SR254,254_.jpg"
-    },
-    {
-      "title": "The Fault in Our Stars",
-      "genre": "Young Adult",
-      "publicationDate": "01-10-2012",
-      "author": "John Green",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/71M4wJoKGxL._AC_UL254_SR254,254_.jpg"
-    },
-    {
-      "title": "Lord of the Flies",
-      "genre": "Dystopian",
-      "publicationDate": "09-17-1954",
-      "author": "William Golding",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/81R9VPGFqTL._AC_UL254_SR254,254_.jpg"
-    },
-    {
-      "title": "The Girl with the Dragon Tattoo",
-      "genre": "Mystery",
-      "publicationDate": "08-27-2005",
-      "author": "Stieg Larsson",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/813yHPADcjL._AC_UL127_SR127,127_.jpg"
-    },
-    {
-      "title": "The Shining",
-      "genre": "Horror",
-      "publicationDate": "01-28-1977",
-      "author": "Stephen King",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/91c9eorep5L._AC_UL254_SR254,254_.jpg"
-    },
-    {
-      "title": "The Hunger Games",
-      "genre": "Science Fiction",
-      "publicationDate": "09-14-2008",
-      "author": "Suzanne Collins",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/71h9CawUxpL._AC_UL254_SR254,254_.jpg"
-    },
-    {
-      "title": "The Da Vinci Code",
-      "genre": "Thriller",
-      "publicationDate": "03-18-2003",
-      "author": "Dan Brown",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/61KI7oL-u9L._AC_UL127_SR127,127_.jpg"
-    },
-    {
-      "title": "The Diary of a Young Girl",
-      "genre": "Biography",
-      "publicationDate": "06-25-1947",
-      "author": "Anne Frank",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/71ZG3iGQnKL._AC_UL254_SR254,254_.jpg"
-    },
-    {
-      "title": "A Song of Ice and Fire",
-      "genre": "Fantasy",
-      "publicationDate": "08-01-1996",
-      "author": "George R.R. Martin",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/81yfsIOijJL._AC_UL254_SR254,254_.jpg"
-    },
-    {
-      "title": "The Maze Runner",
-      "genre": "Dystopian",
-      "publicationDate": "10-06-2009",
-      "author": "James Dashner",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/81WduXjuKwL._AC_UL127_SR127,127_.jpg"
-    },
-    {
-      "title": "The Help",
-      "genre": "Historical Fiction",
-      "publicationDate": "02-10-2009",
-      "author": "Kathryn Stockett",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/81bGKUa1e0L._AC_UL254_SR254,254_.jpg"
-    },
-    {
-      "title": "The Giver",
-      "genre": "Dystopian",
-      "publicationDate": "04-26-1993",
-      "author": "Lois Lowry",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/81jpReBKPeL._AC_UL254_SR254,254_.jpg"
-    },
-    {
-      "title": "The Godfather",
-      "genre": "Crime",
-      "publicationDate": "03-10-1969",
-      "author": "Mario Puzo",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/71PNGYHykrL._AC_UL254_SR254,254_.jpg"
-    },
-    {
-      "title": "The Handmaid's Tale",
-      "genre": "Dystopian",
-      "publicationDate": "09-01-1985",
-      "author": "Margaret Atwood",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/A1bc9KkHtsL._AC_UL254_SR254,254_.jpg"
-    },
-    {
-      "title": "The Little Prince",
-      "genre": "Children's",
-      "publicationDate": "04-06-1943",
-      "author": "Antoine de Saint-Exupéry",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/71PRhT0n0rL._AC_UL254_SR254,254_.jpg"
-    },
-    {
-      "title": "The Count of Monte Cristo",
-      "genre": "Adventure",
-      "publicationDate": "01-28-1844",
-      "author": "Alexandre Dumas",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/81s0B6NYXML._AC_UL254_SR254,254_.jpg"
-    },
-    {
-      "title": "Slaughterhouse-Five",
-      "genre": "Science Fiction",
-      "publicationDate": "03-31-1969",
-      "author": "Kurt Vonnegut",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/41ZLnc34EiL._AC_UL127_SR127,127_.jpg"
-    }
-  ]
-  
+  {
+    "title": "Digital Logic Design",
+    "genre": "Computer Science",
+    "publicationDate": "02-29-1990",
+    "author": "Morris Mano",
+    "image": "https://m.media-amazon.com/images/I/71h9CawUxpL._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "To Kill a Mockingbird",
+    "genre": "Fiction",
+    "publicationDate": "07-11-1960",
+    "author": "Harper Lee",
+    "image": "https://m.media-amazon.com/images/I/81R9VPGFqTL._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Great Gatsby",
+    "genre": "Classic",
+    "publicationDate": "04-10-1925",
+    "author": "F. Scott Fitzgerald",
+    "image": "https://m.media-amazon.com/images/I/91pJQMkd5dL._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "Pride and Prejudice",
+    "genre": "Romance",
+    "publicationDate": "01-28-1813",
+    "author": "Jane Austen",
+    "image": "https://m.media-amazon.com/images/I/71PNGYHykrL._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "1984",
+    "genre": "Dystopian",
+    "publicationDate": "06-08-1949",
+    "author": "George Orwell",
+    "image": "https://m.media-amazon.com/images/I/61B37ET6WiL._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Catcher in the Rye",
+    "genre": "Coming-of-Age",
+    "publicationDate": "07-16-1951",
+    "author": "J.D. Salinger",
+    "image": "https://m.media-amazon.com/images/I/813yHPADcjL._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "Harry Potter and the Sorcerer's Stone",
+    "genre": "Fantasy",
+    "publicationDate": "06-26-1997",
+    "author": "J.K. Rowling",
+    "image": "https://m.media-amazon.com/images/I/91eIanmV7KL._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "To the Lighthouse",
+    "genre": "Modernist",
+    "publicationDate": "05-05-1927",
+    "author": "Virginia Woolf",
+    "image": "https://m.media-amazon.com/images/I/81pzRUTin6L._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Hobbit",
+    "genre": "Fantasy",
+    "publicationDate": "09-21-1937",
+    "author": "J.R.R. Tolkien",
+    "image": "https://m.media-amazon.com/images/I/91vwHMt+x7L._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "Moby-Dick",
+    "genre": "Adventure",
+    "publicationDate": "10-18-1851",
+    "author": "Herman Melville",
+    "image": "https://m.media-amazon.com/images/I/81s0B6NYXML._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "Jane Eyre",
+    "genre": "Gothic",
+    "publicationDate": "10-16-1847",
+    "author": "Charlotte Brontë",
+    "image": "https://m.media-amazon.com/images/I/41ZLnc34EiL._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Lord of the Rings",
+    "genre": "Fantasy",
+    "publicationDate": "07-29-1954",
+    "author": "J.R.R. Tolkien",
+    "image": "https://m.media-amazon.com/images/I/71oWaTEjEkL._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Odyssey",
+    "genre": "Epic",
+    "publicationDate": "08-12-800 BCE",
+    "author": "Homer",
+    "image": "https://m.media-amazon.com/images/I/71tvrdlSpTL._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "Crime and Punishment",
+    "genre": "Psychological",
+    "publicationDate": "01-01-1866",
+    "author": "Fyodor Dostoevsky",
+    "image": "https://m.media-amazon.com/images/I/81jpReBKPeL._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Scarlet Letter",
+    "genre": "Romance",
+    "publicationDate": "03-16-1850",
+    "author": "Nathaniel Hawthorne",
+    "image": "https://m.media-amazon.com/images/I/71ZvnK+4JiL._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Alchemist",
+    "genre": "Fantasy",
+    "publicationDate": "01-01-1988",
+    "author": "Paulo Coelho",
+    "image": "https://m.media-amazon.com/images/I/811dDmyv-pL._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Adventures of Huckleberry Finn",
+    "genre": "Adventure",
+    "publicationDate": "12-10-1884",
+    "author": "Mark Twain",
+    "image": "https://m.media-amazon.com/images/I/71jpReBKPeL._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "Frankenstein",
+    "genre": "Gothic",
+    "publicationDate": "01-01-1818",
+    "author": "Mary Shelley",
+    "image": "https://m.media-amazon.com/images/I/71ZvnK+4JiL._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Picture of Dorian Gray",
+    "genre": "Gothic",
+    "publicationDate": "07-01-1890",
+    "author": "Oscar Wilde",
+    "image": "https://m.media-amazon.com/images/I/71tvrdlSpTL._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "Brave New World",
+    "genre": "Dystopian",
+    "publicationDate": "02-17-1932",
+    "author": "Aldous Huxley",
+    "image": "https://m.media-amazon.com/images/I/81jpReBKPeL._AC_UY218_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Book Thief",
+    "genre": "Historical Fiction",
+    "publicationDate": "03-14-2005",
+    "author": "Markus Zusak",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/71N1BPViQ7L._AC_UL254_SR254,254_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Chronicles of Narnia",
+    "genre": "Fantasy",
+    "publicationDate": "10-16-1950",
+    "author": "C.S. Lewis",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/71h5+dpAriL._AC_UL254_SR254,254_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Kite Runner",
+    "genre": "Historical Fiction",
+    "publicationDate": "05-29-2003",
+    "author": "Khaled Hosseini",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/71aXWhr9tTL._AC_UL254_SR254,254_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "Gone with the Wind",
+    "genre": "Historical Fiction",
+    "publicationDate": "06-30-1936",
+    "author": "Margaret Mitchell",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/71qD06IXszL._AC_UL254_SR254,254_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Fault in Our Stars",
+    "genre": "Young Adult",
+    "publicationDate": "01-10-2012",
+    "author": "John Green",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/71M4wJoKGxL._AC_UL254_SR254,254_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "Lord of the Flies",
+    "genre": "Dystopian",
+    "publicationDate": "09-17-1954",
+    "author": "William Golding",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/81R9VPGFqTL._AC_UL254_SR254,254_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Girl with the Dragon Tattoo",
+    "genre": "Mystery",
+    "publicationDate": "08-27-2005",
+    "author": "Stieg Larsson",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/813yHPADcjL._AC_UL127_SR127,127_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Shining",
+    "genre": "Horror",
+    "publicationDate": "01-28-1977",
+    "author": "Stephen King",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/91c9eorep5L._AC_UL254_SR254,254_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Hunger Games",
+    "genre": "Science Fiction",
+    "publicationDate": "09-14-2008",
+    "author": "Suzanne Collins",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/71h9CawUxpL._AC_UL254_SR254,254_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Da Vinci Code",
+    "genre": "Thriller",
+    "publicationDate": "03-18-2003",
+    "author": "Dan Brown",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/61KI7oL-u9L._AC_UL127_SR127,127_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Diary of a Young Girl",
+    "genre": "Biography",
+    "publicationDate": "06-25-1947",
+    "author": "Anne Frank",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/71ZG3iGQnKL._AC_UL254_SR254,254_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "A Song of Ice and Fire",
+    "genre": "Fantasy",
+    "publicationDate": "08-01-1996",
+    "author": "George R.R. Martin",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/81yfsIOijJL._AC_UL254_SR254,254_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Maze Runner",
+    "genre": "Dystopian",
+    "publicationDate": "10-06-2009",
+    "author": "James Dashner",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/81WduXjuKwL._AC_UL127_SR127,127_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Help",
+    "genre": "Historical Fiction",
+    "publicationDate": "02-10-2009",
+    "author": "Kathryn Stockett",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/81bGKUa1e0L._AC_UL254_SR254,254_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Giver",
+    "genre": "Dystopian",
+    "publicationDate": "04-26-1993",
+    "author": "Lois Lowry",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/81jpReBKPeL._AC_UL254_SR254,254_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Godfather",
+    "genre": "Crime",
+    "publicationDate": "03-10-1969",
+    "author": "Mario Puzo",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/71PNGYHykrL._AC_UL254_SR254,254_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Handmaid's Tale",
+    "genre": "Dystopian",
+    "publicationDate": "09-01-1985",
+    "author": "Margaret Atwood",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/A1bc9KkHtsL._AC_UL254_SR254,254_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Little Prince",
+    "genre": "Children's",
+    "publicationDate": "04-06-1943",
+    "author": "Antoine de Saint-Exupéry",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/71PRhT0n0rL._AC_UL254_SR254,254_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "The Count of Monte Cristo",
+    "genre": "Adventure",
+    "publicationDate": "01-28-1844",
+    "author": "Alexandre Dumas",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/81s0B6NYXML._AC_UL254_SR254,254_.jpg",
+    "email": "3minhaz@gmail.com"
+  },
+  {
+    "title": "Slaughterhouse-Five",
+    "genre": "Science Fiction",
+    "publicationDate": "03-31-1969",
+    "author": "Kurt Vonnegut",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/41ZLnc34EiL._AC_UL127_SR127,127_.jpg",
+    "email": "3minhaz@gmail.com"
+  }
+]
