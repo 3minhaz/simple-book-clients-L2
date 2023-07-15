@@ -11,7 +11,7 @@ const Books = () => {
   return (
     <div className="mt-18 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {books.map((book: any) => (
-        <div className="card shadow-xl">
+        <div key={book._id} className="card shadow-xl">
           <figure className="w-full h-80">
             <img src={book.image} alt="Shoes" />
           </figure>
