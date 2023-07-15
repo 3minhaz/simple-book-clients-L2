@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { configureStore } from "@reduxjs/toolkit";
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 const store = configureStore({
   reducer: {},
 });

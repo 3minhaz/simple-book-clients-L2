@@ -1,13 +1,10 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-
-import Home from "./pages/Home/Home";
+import { RouterProvider } from "react-router-dom";
+import router from "./Routes/Routes/Routes.tsx";
 
 function App() {
   return (
     <div className="max-w-[1400px] mx-auto">
-      <Home></Home>
+      <RouterProvider router={router} />
     </div>
   );
 }
