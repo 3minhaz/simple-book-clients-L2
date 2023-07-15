@@ -7,12 +7,7 @@ const Books = () => {
   if (isLoading) {
     return <Loader></Loader>;
   }
-  console.log(books);
-  //   const lastTenBooks = [];
-  //   for (let i = books?.length - 10; i < books?.length; i++) {
-  //     lastTenBooks.unshift(books[i]);
-  //   }
-  //   console.log(lastTenBooks);
+
   return (
     <div className="mt-18 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {books.map((book: any) => (
