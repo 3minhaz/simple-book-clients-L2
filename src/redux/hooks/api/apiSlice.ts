@@ -18,6 +18,13 @@ const api = createApi({
         body: data,
       }),
     }),
+    createBook: builder.mutation({
+      query: (data) => ({
+        url: `/create-book`,
+        method: "POST",
+        body: data,
+      }),
+    }),
     deleteBook: builder.mutation({
       query: (id) => ({
         url: `/book-delete/${id}`,
@@ -52,5 +59,6 @@ export const {
   useGetSingleBooksQuery,
   useUpdateCommentMutation,
   usePostCommentMutation,
+  useCreateBookMutation,
   useDeleteBookMutation,
 } = api;

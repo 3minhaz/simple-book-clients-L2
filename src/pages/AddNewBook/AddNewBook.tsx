@@ -1,9 +1,9 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Link, useParams } from "react-router-dom";
-import {
-  useGetSingleBooksQuery,
-  useUpdateCommentMutation,
-} from "../../redux/hooks/api/apiSlice";
+import { useCreateBookMutation } from "../../redux/hooks/api/apiSlice";
+import { useAppSelector } from "../../redux/hooks/useReduxHooks";
+import { useEffect } from "react";
+import { toast } from "react-hot-toast";
 
 type Inputs = {
   author: string;
@@ -11,6 +11,7 @@ type Inputs = {
   genre: string;
   publicationDate: string;
   image: string;
+  email: string;
 };
 
 const AddNewBook = () => {
@@ -25,9 +26,12 @@ const AddNewBook = () => {
   //   const { data, isLoading } = useGetSingleBooksQuery(id);
   //   console.log(data);
   //   const dispatch = useAppDispatch();
-  //   const [updateData, { isLoading: UpdteLoading, isError, isSuccess }] =
-  // useUpdateCommentMutation();
-  const handleLogin: SubmitHandler<Inputs> = (data) => {
+  const email = useAppSelector((state) => state.users.email);
+  const [createBook, { data: newBook, isLoading, isError, isSuccess }] =
+    useCreateBookMutation();
+  const handleBookCreate: SubmitHandler<Inputs> = (data) => {
+    data.email = email;
+    createBook(data);
     // dispatch(registerUser(data));
     // reset();
     // const options = {
@@ -39,12 +43,20 @@ const AddNewBook = () => {
     // }
     // console.log(data);
   };
+  console.log("newBook", newBook);
+  useEffect(() => {
+    if (newBook?.insertedId) {
+      reset();
+      toast.success("Book created successfully");
+    }
+  }, [newBook?.insertedId]);
+
   return (
     <div className="flex justify-center items-center h-[600px] ">
       <div className="w-96 p-7">
         <h2 className="text-xl text-center font-bold">Added A New Book</h2>
         <form
-          onSubmit={handleSubmit(handleLogin)}
+          onSubmit={handleSubmit(handleBookCreate)}
           className="grid gap-6 grid-cols-1"
         >
           <div className="form-control w-full max-w-xs">
@@ -94,7 +106,9 @@ const AddNewBook = () => {
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Publication Date</span>
+              <span className="label-text">
+                Publication Date : (ex: 12-31-2023)
+              </span>
             </label>
             <input
               type="text"
@@ -119,13 +133,11 @@ const AddNewBook = () => {
             <input
               type="text"
               className="input input-bordered w-full max-w-xs"
-              {...register("image", {
-                required: "Image is required",
-              })}
+              {...register("image")}
             />
-            {errors.image && (
+            {/* {errors.image && (
               <p className="text-red-500">{errors.image.message}</p>
-            )}
+            )} */}
           </div>
 
           <input

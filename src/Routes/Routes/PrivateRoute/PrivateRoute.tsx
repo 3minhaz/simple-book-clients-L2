@@ -8,14 +8,14 @@ interface IProps {
 }
 
 const PrivateRoute = ({ children }: IProps) => {
-  const { pathname } = useLocation();
   const { email, isLoading } = useAppSelector((state) => state.users);
+  const location = useLocation();
+
   if (isLoading) {
     return <Loader></Loader>;
   }
-  console.log(isLoading, "isLoading");
   if (!email && !isLoading) {
-    return <Navigate to="/login" state={{ path: pathname }} replace />;
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
   return children;
 };

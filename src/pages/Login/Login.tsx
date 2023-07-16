@@ -1,8 +1,12 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useAppDispatch } from "../../redux/hooks/useReduxHooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../redux/hooks/useReduxHooks";
 import { loginUser } from "../../redux/users/user";
+import { useEffect } from "react";
 
 type Inputs = {
   email: string;
@@ -17,16 +21,22 @@ const Login = () => {
     reset,
     formState: { errors },
   } = useForm<Inputs>();
-  const navigate = useNavigate();
   const location = useLocation();
+  const navigate = useNavigate();
+  const { email, isLoading } = useAppSelector((state) => state.users);
   const from = location.state?.from?.pathname || "/";
 
   const dispatch = useAppDispatch();
   const handleLogin: SubmitHandler<Inputs> = (data) => {
     dispatch(loginUser(data));
-    navigate(from, { replace: true });
     reset();
   };
+
+  useEffect(() => {
+    if (email && !isLoading) {
+      navigate(from, { replace: true });
+    }
+  }, [email, isLoading, from, navigate]);
 
   return (
     <div className="flex justify-center items-center h-[600px] ">
