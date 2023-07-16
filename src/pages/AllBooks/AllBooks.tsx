@@ -27,7 +27,39 @@ const AllBooks = () => {
   const dispatch = useAppDispatch();
 
   const data = useAppSelector((state) => state.book);
-  // console.log("data", data);
+  // const data2 = useAppSelector((state) => state.book);
+
+  const handleFilterChange = async (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    // const { name, value } = e.target;
+    // const updatedData = { [name]: value };
+    // console.log("checking", data.filters);
+    // const filtersData = allBooks.filter((book) => {
+    // console.log(data.filters);
+    // if (data.filters?.genre!) {
+    // console.log("inside genre");
+    // console.log("checking", data.filters);
+    // }
+    // });
+    // console.log("filters data", filtersData);
+    // const filteredBooks = allBooks.filter((book: any) => {
+    //   if (data.genre && book.genre.toLowerCase() !== data.genre.toLowerCase()) {
+    //     return false;
+    //   }
+    //   if (
+    //     data.publicationYear &&
+    //     book.publicationDate.split("-")[2] !== data.publicationYear
+    //   ) {
+    //     return false;
+    //   }
+    //   return true;
+    // });
+    // Render the filtered book list
+    // console.log(filteredBooks);
+    // dispatch(setFilters({ [name]: data }));
+    // await refetch();
+  };
 
   const { data: allBooks, isLoading, refetch } = useGetAllBooksQuery(data);
   if (isLoading) {
@@ -44,17 +76,7 @@ const AllBooks = () => {
     reset();
   };
 
-  console.log("data books", allBooks);
-
-  const handleFilterChange = async (
-    e: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    const updatedData = { ...data, [name]: value };
-    // console.log(updatedData);
-    dispatch(setFilters(updatedData));
-    await refetch();
-  };
+  // console.log("data books", allBooks);
 
   return (
     <div>
