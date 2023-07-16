@@ -78,9 +78,10 @@ const Navbar = () => {
             </>
           )}{" "}
           {user && (
-            <li onClick={() => handleLogout()}>
-              <Link to="/login">Logout</Link>
-            </li>
+            // <li onClick={() => handleLogout()}>
+            //   <Link to="/login">Logout</Link>
+            // </li>
+            <button onClick={() => handleLogout()}>logout</button>
           )}
         </ul>
       </div>
