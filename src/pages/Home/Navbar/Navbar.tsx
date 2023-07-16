@@ -16,7 +16,7 @@ const Navbar = () => {
       dispatch(setUser(null));
     });
   };
-  console.log("user ...", !user);
+
   return (
     <div className="navbar flex justify-between">
       <div className="navbar-start">

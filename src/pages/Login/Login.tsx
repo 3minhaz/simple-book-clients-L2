@@ -26,7 +26,6 @@ const Login = () => {
     dispatch(loginUser(data));
     navigate(from, { replace: true });
     reset();
-    console.log(data);
   };
 
   return (
