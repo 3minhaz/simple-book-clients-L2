@@ -13,10 +13,11 @@ const PrivateRoute = ({ children }: IProps) => {
   if (isLoading) {
     return <Loader></Loader>;
   }
-  if (email) {
-    return children;
+  console.log(isLoading, "isLoading");
+  if (!email && !isLoading) {
+    return <Navigate to="/login" state={{ path: pathname }} replace />;
   }
-  return <Navigate to="/login" state={{ path: pathname }} />;
+  return children;
 };
 
 export default PrivateRoute;

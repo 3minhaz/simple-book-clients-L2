@@ -1,14 +1,14 @@
 import { Link, useParams } from "react-router-dom";
 import {
+  useDeleteBookMutation,
   useGetSingleBooksQuery,
   usePostCommentMutation,
 } from "../../redux/hooks/api/apiSlice";
 import Loader from "../../components/Loader";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "../../redux/hooks/useReduxHooks";
+import { useAppSelector } from "../../redux/hooks/useReduxHooks";
 import { useForm, SubmitHandler } from "react-hook-form";
+import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 type Inputs = {
   comment: string;
@@ -16,37 +16,58 @@ type Inputs = {
 
 const BookDetails = () => {
   const { id } = useParams();
-  const {
-    register,
-    handleSubmit,
-    watch,
-    reset,
-    formState: { errors },
-  } = useForm<Inputs>();
-  const dispatch = useAppDispatch();
+
   const { data, isLoading } = useGetSingleBooksQuery(id, {
     refetchOnMountOrArgChange: true,
   });
-  const [postComment, { isLoading: loadingPost, isError, isSuccess }] =
-    usePostCommentMutation();
+  const [postComment, { data: commentData }] = usePostCommentMutation();
+
+  const [deleteBook, { data: deletedData }] = useDeleteBookMutation();
+
   const user = useAppSelector((state) => state.users);
 
-  const handleComment: SubmitHandler<Inputs> = async (data) => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+  const handleComment: SubmitHandler<Inputs> = (data) => {
     const options = {
       id,
       data: { comment: data.comment, user: user.email },
     };
 
-    await postComment(options);
-    if (isSuccess) {
+    postComment(options);
+  };
+  // console.log("modified count ", commentData);
+  useEffect(() => {
+    if (commentData?.modifiedCount > 0) {
+      toast.success("Successfully created!");
       reset();
     }
-  };
+  }, [commentData?.modifiedCount]);
+
   const verifiedBookUser = data?.email === user?.email;
-  console.log("verifiedBookUser", verifiedBookUser);
-  // console.log("data?.email", data?.email);
-  // console.log("user?.email", user?.email);
-  // const { image, title, author, genre, publicationDate } = data;
+
+  const handleDelete = (id: string) => {
+    const confirm = window.confirm(
+      "Are you sure you want to to delete the book?"
+    );
+    if (confirm) {
+      deleteBook(id);
+    }
+    // if (successDelete) {
+    //   toast.success("Delete the book successfully");
+    // }
+  };
+
+  useEffect(() => {
+    if (deletedData?.deletedCount === 1) {
+      toast.success("Deleted the book successfully!");
+    }
+  }, [deletedData?.deletedCount]);
 
   if (isLoading) {
     return <Loader></Loader>;
@@ -69,7 +90,12 @@ const BookDetails = () => {
                 <Link to={`/books/edit/${data._id}`}>
                   <button className="btn btn-primary">Edit</button>
                 </Link>
-                <button className="btn mx-5 btn-warning">Delete</button>
+                <button
+                  onClick={() => handleDelete(data._id)}
+                  className="btn mx-5 btn-warning"
+                >
+                  Delete
+                </button>
               </>
             )}
           </div>
@@ -99,12 +125,15 @@ const BookDetails = () => {
           </>
         )}
         <h2 className="text-2xl font-bold">User Reviews</h2>
-        {data?.comments?.map((comment: any) => (
-          <div className="flex gap-4 mt-2">
-            <h2>User: {comment.email}</h2>
-            <h2>comment: {comment.comment}</h2>
-          </div>
-        ))}
+        {data?.comments &&
+          data?.comments?.map(
+            (comment: { email: string; comment: string }, index: number) => (
+              <div key={index} className="flex gap-4 mt-2">
+                <h2>User: {comment.email}</h2>
+                <h2>comment: {comment.comment}</h2>
+              </div>
+            )
+          )}
       </div>
     </div>
   );

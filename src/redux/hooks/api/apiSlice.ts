@@ -11,6 +11,20 @@ const api = createApi({
     getAllBooks: builder.query({
       query: ({ searchTerm }) => `/books?searchTerm=${searchTerm}`,
     }),
+    updateComment: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/book-update/${id}`,
+        method: "PATCH",
+        body: data,
+      }),
+    }),
+    deleteBook: builder.mutation({
+      query: (id) => ({
+        url: `/book-delete/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["books"],
+    }),
     getSingleBooks: builder.query({
       query: (id) => `/book/${id}`,
       providesTags: ["books"],
@@ -20,20 +34,12 @@ const api = createApi({
     //   query: (id) => `/comment/${id}`,
     // }),
     postComment: builder.mutation({
-      query: ({ id, data }) => ({
+      query: ({ id, data }: any) => ({
         url: `/comment/${id}`,
         method: "POST",
         body: data,
       }),
       invalidatesTags: ["books"],
-    }),
-    updateComment: builder.mutation({
-      query: ({ id, data }) => ({
-        url: `/book-update/${id}`,
-        method: "PATCH",
-        body: data,
-      }),
-      // invalidatesTags: ["books"],
     }),
   }),
 });
@@ -46,4 +52,5 @@ export const {
   useGetSingleBooksQuery,
   useUpdateCommentMutation,
   usePostCommentMutation,
+  useDeleteBookMutation,
 } = api;

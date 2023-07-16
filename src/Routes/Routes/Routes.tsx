@@ -7,11 +7,12 @@ import AllBooks from "../../pages/AllBooks/AllBooks";
 import BookDetails from "../../pages/BookDetails/BookDetails";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import EditBook from "../../pages/EditBook/EditBook";
+import App from "../../App";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main></Main>,
+    element: <App></App>,
     children: [
       {
         path: "/",

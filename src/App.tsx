@@ -5,6 +5,7 @@ import { useAppDispatch } from "./redux/hooks/useReduxHooks.ts";
 import { setLoading, setUser } from "./redux/users/user.ts";
 import { onAuthStateChanged } from "firebase/auth";
 import auth from "./firebase/firebase.ts";
+import Main from "./layout/Main.tsx";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -23,7 +24,8 @@ function App() {
 
   return (
     <div className="max-w-[1400px] mx-auto">
-      <RouterProvider router={router} />
+      <Main></Main>
+      {/* <RouterProvider router={router} /> */}
     </div>
   );
 }
