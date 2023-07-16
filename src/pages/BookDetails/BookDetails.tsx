@@ -42,6 +42,10 @@ const BookDetails = () => {
       reset();
     }
   };
+  const verifiedBookUser = data?.email === user?.email;
+  console.log("verifiedBookUser", verifiedBookUser);
+  // console.log("data?.email", data?.email);
+  // console.log("user?.email", user?.email);
   // const { image, title, author, genre, publicationDate } = data;
 
   if (isLoading) {
@@ -60,7 +64,12 @@ const BookDetails = () => {
             <h1 className="text-xl mt-4">
               Published Date: {data?.publicationDate}
             </h1>
-            <button className="btn btn-primary">Get Started</button>
+            {verifiedBookUser && (
+              <>
+                <button className="btn btn-primary">Edit</button>
+                <button className="btn btn-danger">Edit</button>
+              </>
+            )}
           </div>
         </div>
       </div>
