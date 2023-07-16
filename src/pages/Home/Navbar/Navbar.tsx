@@ -1,6 +1,22 @@
 import { Link } from "react-router-dom";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../redux/hooks/useReduxHooks";
+import { signOut } from "firebase/auth";
+import auth from "../../../firebase/firebase";
+import { setUser } from "../../../redux/users/user";
 
 const Navbar = () => {
+  const user = useAppSelector((state) => state.users.email);
+  const dispatch = useAppDispatch();
+
+  const handleLogout = () => {
+    signOut(auth).then(() => {
+      dispatch(setUser(null));
+    });
+  };
+  console.log("user ...", !user);
   return (
     <div className="navbar flex justify-between">
       <div className="navbar-start">
@@ -51,12 +67,21 @@ const Navbar = () => {
           <li>
             <Link to="/all-books">All Books</Link>
           </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/signup">Sign up</Link>
-          </li>
+          {!user && (
+            <>
+              <li>
+                <Link to="/login">Login</Link>
+              </li>
+              <li>
+                <Link to="/signup">Sign up</Link>
+              </li>
+            </>
+          )}{" "}
+          {user && (
+            <li onClick={() => handleLogout()}>
+              <Link to="/login">Logout</Link>
+            </li>
+          )}
         </ul>
       </div>
       {/* <div className="navbar-end">

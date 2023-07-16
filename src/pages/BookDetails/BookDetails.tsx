@@ -8,7 +8,7 @@ const BookDetails = () => {
   if (isLoading) {
     return <Loader></Loader>;
   }
-  console.log(data);
+
   return (
     <div>
       <h2>This is book details</h2>

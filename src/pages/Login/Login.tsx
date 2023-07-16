@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useAppDispatch } from "../../redux/hooks/useReduxHooks";
+import { loginUser } from "../../redux/users/user";
 
 type Inputs = {
   email: string;
@@ -12,9 +14,16 @@ const Login = () => {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm<Inputs>();
-  const handleLogin: SubmitHandler<Inputs> = (data) => console.log(data);
+
+  const dispatch = useAppDispatch();
+  const handleLogin: SubmitHandler<Inputs> = (data) => {
+    dispatch(loginUser(data));
+    reset();
+    console.log(data);
+  };
   return (
     <div className="flex justify-center items-center h-[600px] ">
       <div className="w-96 p-7">
