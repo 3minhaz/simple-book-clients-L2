@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   useGetSingleBooksQuery,
   usePostCommentMutation,
@@ -66,8 +66,10 @@ const BookDetails = () => {
             </h1>
             {verifiedBookUser && (
               <>
-                <button className="btn btn-primary">Edit</button>
-                <button className="btn btn-danger">Edit</button>
+                <Link to={`/books/edit/${data._id}`}>
+                  <button className="btn btn-primary">Edit</button>
+                </Link>
+                <button className="btn mx-5 btn-warning">Delete</button>
               </>
             )}
           </div>

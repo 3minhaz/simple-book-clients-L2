@@ -15,6 +15,7 @@ const api = createApi({
       query: (id) => `/book/${id}`,
       providesTags: ["books"],
     }),
+
     // getComment: builder.query({
     //   query: (id) => `/comment/${id}`,
     // }),
@@ -26,6 +27,14 @@ const api = createApi({
       }),
       invalidatesTags: ["books"],
     }),
+    updateComment: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/book-update/${id}`,
+        method: "PATCH",
+        body: data,
+      }),
+      // invalidatesTags: ["books"],
+    }),
   }),
 });
 
@@ -35,6 +44,6 @@ export const {
   useGetTenBooksQuery,
   useGetAllBooksQuery,
   useGetSingleBooksQuery,
-  useGetCommentQuery,
+  useUpdateCommentMutation,
   usePostCommentMutation,
 } = api;
