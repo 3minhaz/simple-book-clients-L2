@@ -13,6 +13,10 @@ const api = createApi({
     }),
     getSingleBooks: builder.query({
       query: (id) => `/book/${id}`,
+      providesTags: ["books"],
+    }),
+    getComment: builder.query({
+      query: (id) => `/comment/${id}`,
     }),
     postComment: builder.mutation({
       query: ({ id, data }) => ({
@@ -20,6 +24,7 @@ const api = createApi({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: ["books"],
     }),
   }),
 });
@@ -30,5 +35,6 @@ export const {
   useGetTenBooksQuery,
   useGetAllBooksQuery,
   useGetSingleBooksQuery,
+  useGetCommentQuery,
   usePostCommentMutation,
 } = api;

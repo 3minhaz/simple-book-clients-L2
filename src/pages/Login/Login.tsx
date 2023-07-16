@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useAppDispatch } from "../../redux/hooks/useReduxHooks";
@@ -17,10 +17,14 @@ const Login = () => {
     reset,
     formState: { errors },
   } = useForm<Inputs>();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const dispatch = useAppDispatch();
   const handleLogin: SubmitHandler<Inputs> = (data) => {
     dispatch(loginUser(data));
+    navigate(from, { replace: true });
     reset();
     console.log(data);
   };

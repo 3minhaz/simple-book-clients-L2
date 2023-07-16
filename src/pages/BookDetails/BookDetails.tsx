@@ -24,57 +24,76 @@ const BookDetails = () => {
     formState: { errors },
   } = useForm<Inputs>();
   const dispatch = useAppDispatch();
-  const { data, isLoading } = useGetSingleBooksQuery(id);
+  const { data, isLoading } = useGetSingleBooksQuery(id, {
+    refetchOnMountOrArgChange: true,
+  });
   const [postComment, { isLoading: loadingPost, isError, isSuccess }] =
     usePostCommentMutation();
   const user = useAppSelector((state) => state.users);
+
+  const handleComment: SubmitHandler<Inputs> = async (data) => {
+    const options = {
+      id,
+      data: { comment: data.comment, user: user.email },
+    };
+
+    await postComment(options);
+    if (isSuccess) {
+      reset();
+    }
+  };
+  // const { image, title, author, genre, publicationDate } = data;
 
   if (isLoading) {
     return <Loader></Loader>;
   }
 
-  const handleComment: SubmitHandler<Inputs> = (data) => {
-    const options = {
-      id,
-      data: { comment: data.comment },
-    };
-
-    postComment(options);
-    if (isSuccess) {
-      reset();
-    }
-  };
-  const { image, title, author, genre, publicationDate } = data;
-
   return (
     <div>
       <div className="hero">
         <div className="hero-content flex-col lg:flex-row">
-          <img src={image} className="w-96 rounded-lg shadow-2xl mr-16" />
+          <img src={data?.image} className="w-96 rounded-lg shadow-2xl mr-16" />
           <div>
-            <h1 className="text-5xl font-bold">Title: {title}</h1>
-            <h1 className="text-xl mt-4">Author: {author}</h1>
-            <h1 className="text-xl mt-4">Genre: {genre}</h1>
-            <h1 className="text-xl mt-4">Published Date: {publicationDate}</h1>
+            <h1 className="text-5xl font-bold">Title: {data?.title}</h1>
+            <h1 className="text-xl mt-4">Author: {data?.author}</h1>
+            <h1 className="text-xl mt-4">Genre: {data?.genre}</h1>
+            <h1 className="text-xl mt-4">
+              Published Date: {data?.publicationDate}
+            </h1>
             <button className="btn btn-primary">Get Started</button>
           </div>
         </div>
       </div>
       <div className="mt-12 w-full">
-        <form onSubmit={handleSubmit(handleComment)}>
-          <input
-            type="text"
-            placeholder="Type here"
-            {...register("comment", {
-              required: "Comment is required",
-            })}
-            className="input input-bordered input-primary w-full mb-4"
-          />
-          {errors.comment && (
-            <p className="text-red-500">Comment is required</p>
-          )}
-          <input className="btn btn-success" type="submit" value="Comment" />
-        </form>
+        {user.email && (
+          <>
+            <form onSubmit={handleSubmit(handleComment)}>
+              <input
+                type="text"
+                placeholder="Type here"
+                {...register("comment", {
+                  required: "Comment is required",
+                })}
+                className="input input-bordered input-primary w-full mb-4"
+              />
+              {errors.comment && (
+                <p className="text-red-500">Comment is required</p>
+              )}
+              <input
+                className="btn btn-success"
+                type="submit"
+                value="Comment"
+              />
+            </form>
+          </>
+        )}
+        <h2 className="text-2xl font-bold">User Reviews</h2>
+        {data?.comments?.map((comment: any) => (
+          <div className="flex gap-4 mt-2">
+            <h2>User: {comment.email}</h2>
+            <h2>comment: {comment.comment}</h2>
+          </div>
+        ))}
       </div>
     </div>
   );
