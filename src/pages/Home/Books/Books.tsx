@@ -1,5 +1,6 @@
 import { useGetTenBooksQuery } from "../../../redux/hooks/api/apiSlice";
 import Loader from "../../../components/Loader";
+import { Link } from "react-router-dom";
 
 const Books = () => {
   const { data: books, isLoading } = useGetTenBooksQuery(undefined);
@@ -23,6 +24,9 @@ const Books = () => {
             <p>Author: {book.author}</p>
             <p>Genre: {book.genre}</p>
             <p>Publication Date: {book.publicationDate}</p>
+            <p className="btn btn-primary">
+              <Link to={`/books/${book._id}`}>Details</Link>
+            </p>
             {/* <div className="card-actions justify-end">
               <div className="badge badge-outline">Fashion</div>
               <div className="badge badge-outline">Products</div>

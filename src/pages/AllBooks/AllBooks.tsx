@@ -80,6 +80,9 @@ const AllBooks = () => {
 
   return (
     <div>
+      <Link to="/add-new-book">
+        <button className="btn btn-info mb-14">Add A New Book</button>
+      </Link>
       <div>
         <form
           onSubmit={handleSubmit(onSubmit)}

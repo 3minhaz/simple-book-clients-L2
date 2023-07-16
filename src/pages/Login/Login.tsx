@@ -28,6 +28,7 @@ const Login = () => {
     reset();
     console.log(data);
   };
+
   return (
     <div className="flex justify-center items-center h-[600px] ">
       <div className="w-96 p-7">
