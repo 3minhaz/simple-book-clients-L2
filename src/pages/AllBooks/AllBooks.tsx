@@ -89,7 +89,6 @@ const AllBooks = () => {
     }
   }, [genre, year]);
 
-  console.log("filterData", filterData);
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     dispatch(setSearchTerm(data.searchTerm));
     await refetch();

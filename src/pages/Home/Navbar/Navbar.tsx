@@ -92,6 +92,12 @@ const Navbar = () => {
               >
                 Currently Reading
               </button>
+              <button
+                onClick={() => navigate("/add-new-book")}
+                className="mr-4"
+              >
+                Add New Book
+              </button>
               <button className="mr-4">{user}</button>
               <button onClick={() => handleLogout()}>logout</button>
             </>

@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000" }),
-  tagTypes: ["books"],
+  tagTypes: ["books", "wishlist"],
   endpoints: (builder) => ({
     getTenBooks: builder.query({
       query: () => "/landing-page-books",
@@ -36,7 +36,18 @@ const api = createApi({
       query: (id) => `/book/${id}`,
       providesTags: ["books"],
     }),
-
+    getWishListBook: builder.query({
+      query: (email) => `/wishlist-get/${email}`,
+      providesTags: ["wishlist"],
+    }),
+    removeFromWishList: builder.mutation({
+      query: ({ id, email }) => ({
+        url: `/wishlist/?email=${email}&id=${id}`,
+        method: "DELETE",
+        body: id,
+      }),
+      invalidatesTags: ["wishlist"],
+    }),
     postComment: builder.mutation({
       query: ({ id, data }: any) => ({
         url: `/comment/${id}`,
@@ -52,6 +63,11 @@ const api = createApi({
         body: data,
       }),
     }),
+    // getWishListBook: builder.query({
+    //   query: (email) => ({
+    //     url: `/wishlist-get/${email}`,
+    //   }),
+    // }),
   }),
 });
 
@@ -61,9 +77,11 @@ export const {
   useGetTenBooksQuery,
   useGetAllBooksQuery,
   useGetSingleBooksQuery,
+  useGetWishListBookQuery,
   useUpdateCommentMutation,
   usePostCommentMutation,
   useCreateBookMutation,
   useDeleteBookMutation,
   useAddWishListMutation,
+  useRemoveFromWishListMutation,
 } = api;
