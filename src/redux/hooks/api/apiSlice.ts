@@ -37,9 +37,6 @@ const api = createApi({
       providesTags: ["books"],
     }),
 
-    // getComment: builder.query({
-    //   query: (id) => `/comment/${id}`,
-    // }),
     postComment: builder.mutation({
       query: ({ id, data }: any) => ({
         url: `/comment/${id}`,

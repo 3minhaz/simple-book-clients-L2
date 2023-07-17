@@ -11,7 +11,7 @@ type Inputs = {
   genre: string;
   publicationDate: string;
   image: string;
-  email: string;
+  email: string | null;
 };
 
 const AddNewBook = () => {
@@ -19,31 +19,17 @@ const AddNewBook = () => {
     register,
     handleSubmit,
     reset,
-    watch,
     formState: { errors },
   } = useForm<Inputs>();
 
-  //   const { data, isLoading } = useGetSingleBooksQuery(id);
-  //   console.log(data);
-  //   const dispatch = useAppDispatch();
   const email = useAppSelector((state) => state.users.email);
-  const [createBook, { data: newBook, isLoading, isError, isSuccess }] =
-    useCreateBookMutation();
+  const [createBook, { data: newBook }] = useCreateBookMutation();
+
   const handleBookCreate: SubmitHandler<Inputs> = (data) => {
     data.email = email;
     createBook(data);
-    // dispatch(registerUser(data));
-    // reset();
-    // const options = {
-    //   id,
-    //   data,
-    // };
-    // if (isSuccess) {
-    //   console.log("data updated successfully");
-    // }
-    // console.log(data);
   };
-  console.log("newBook", newBook);
+
   useEffect(() => {
     if (newBook?.insertedId) {
       reset();
@@ -54,7 +40,9 @@ const AddNewBook = () => {
   return (
     <div className="flex justify-center items-center h-[600px] ">
       <div className="w-96 p-7">
-        <h2 className="text-xl text-center font-bold">Added A New Book</h2>
+        <h2 className="text-xl text-center font-bold uppercase mb-4">
+          Added A New Book
+        </h2>
         <form
           onSubmit={handleSubmit(handleBookCreate)}
           className="grid gap-6 grid-cols-1"
@@ -135,9 +123,6 @@ const AddNewBook = () => {
               className="input input-bordered w-full max-w-xs"
               {...register("image")}
             />
-            {/* {errors.image && (
-              <p className="text-red-500">{errors.image.message}</p>
-            )} */}
           </div>
 
           <input
@@ -146,9 +131,6 @@ const AddNewBook = () => {
             type="submit"
           />
         </form>
-
-        {/* <div className="divider">OR</div> */}
-        {/* <button className="btn btn-outline w-full">CONTINUE WITH GOOGLE</button> */}
       </div>
     </div>
   );
