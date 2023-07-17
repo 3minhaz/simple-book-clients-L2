@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   useAppDispatch,
   useAppSelector,
@@ -8,6 +8,7 @@ import auth from "../../../firebase/firebase";
 import { setUser } from "../../../redux/users/user";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const user = useAppSelector((state) => state.users.email);
   const dispatch = useAppDispatch();
 
@@ -82,6 +83,15 @@ const Navbar = () => {
             //   <Link to="/login">Logout</Link>
             // </li>
             <>
+              <button onClick={() => navigate("/wishlist")} className="mr-4">
+                Wishlist
+              </button>
+              <button
+                onClick={() => navigate("/currently-reading")}
+                className="mr-4"
+              >
+                Currently Reading
+              </button>
               <button className="mr-4">{user}</button>
               <button onClick={() => handleLogout()}>logout</button>
             </>

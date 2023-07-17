@@ -9,8 +9,9 @@ import {
 } from "../../redux/hooks/useReduxHooks";
 import { setGenre, setSearchTerm, setYear } from "../../redux/books/bookSlice";
 import { toast } from "react-hot-toast";
+import AllBook from "./AllBook";
 
-type Book = {
+export type Book = {
   _id: string;
   author: string;
   title: string;
@@ -50,7 +51,7 @@ const AllBooks = () => {
       );
       // filterData.push(...filteredByGenre);
       setFilteredData(filteredByGenre);
-      if (filteredByGenre.length === 0 && filterData.length === 0) {
+      if (filteredByGenre.length === 0) {
         toast.error("No result found", {
           duration: 5000,
         });
@@ -62,7 +63,7 @@ const AllBooks = () => {
         return publicationYear === year;
       });
       setFilteredData(filteredByYear);
-      if (filteredByYear.length === 0 && filterData.length === 0) {
+      if (filteredByYear.length === 0) {
         toast.error("No result found", {
           duration: 5000,
         });
@@ -79,7 +80,7 @@ const AllBooks = () => {
         );
       });
       // filterData.push(...filteredByGenreAndYear);
-      if (filteredByGenreAndYear.length === 0 && filterData.length === 0) {
+      if (filteredByGenreAndYear.length === 0) {
         toast.error("No result found", {
           duration: 5000,
         });
@@ -117,17 +118,9 @@ const AllBooks = () => {
           />
           <input className="btn btn-primary" type="submit" value="Search" />
         </form>
-        {/* <select className="mr-5 select select-bordered max-w-xs">
-          <option disabled selected>
-            Select
-          </option>
-          <option>Genre</option>
-          <option>Publication Year</option>
-        </select> */}
 
         <select
-          // className="mr-5 select select-bordered max-w-xs"
-          // {...register("genre")}
+          className="select select-bordered mr-4"
           onChange={handleGenreChange}
           name="genre"
         >
@@ -142,6 +135,7 @@ const AllBooks = () => {
         <select
           // className="mr-5 select select-bordered max-w-xs"
           // {...register("publicationYear")}
+          className="select select-bordered"
           onChange={handleYearChange}
           name="publicationYear"
         >
@@ -157,64 +151,10 @@ const AllBooks = () => {
       <div className="mt-18 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {filterData.length > 0
           ? filterData?.map((book: Book) => (
-              <div key={book._id} className="card shadow-xl">
-                <figure className="w-full h-80">
-                  <img
-                    src={
-                      book.image
-                        ? book.image
-                        : "http://dummyimage.com/212x100.png/dddddd/000000"
-                    }
-                    alt={book.title}
-                  />
-                </figure>
-                <div className="card-body items-center text-center">
-                  <h2 className="card-title">
-                    Title: {book.title}
-                    {/* <div className="badge badge-secondary">NEW</div> */}
-                  </h2>
-                  <p>Author: {book.author}</p>
-                  <p>Genre: {book.genre}</p>
-                  <p>Publication Date: {book.publicationDate}</p>
-                  <p className="btn btn-primary">
-                    <Link to={`/books/${book._id}`}>Details</Link>
-                  </p>
-                  {/* <div className="card-actions justify-end">
-                <div className="badge badge-outline">Fashion</div>
-                <div className="badge badge-outline">Products</div>
-              </div> */}
-                </div>
-              </div>
+              <AllBook key={book._id} book={book}></AllBook>
             ))
           : allBooks?.map((book: Book) => (
-              <div key={book._id} className="card shadow-xl">
-                <figure className="w-full h-80">
-                  <img
-                    src={
-                      book.image
-                        ? book.image
-                        : "http://dummyimage.com/212x100.png/dddddd/000000"
-                    }
-                    alt={book.title}
-                  />
-                </figure>
-                <div className="card-body items-center text-center">
-                  <h2 className="card-title">
-                    Title: {book.title}
-                    {/* <div className="badge badge-secondary">NEW</div> */}
-                  </h2>
-                  <p>Author: {book.author}</p>
-                  <p>Genre: {book.genre}</p>
-                  <p>Publication Date: {book.publicationDate}</p>
-                  <p className="btn btn-primary">
-                    <Link to={`/books/${book._id}`}>Details</Link>
-                  </p>
-                  {/* <div className="card-actions justify-end">
-                <div className="badge badge-outline">Fashion</div>
-                <div className="badge badge-outline">Products</div>
-              </div> */}
-                </div>
-              </div>
+              <AllBook key={book._id} book={book}></AllBook>
             ))}
       </div>
     </div>
