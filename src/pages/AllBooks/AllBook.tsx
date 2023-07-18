@@ -53,8 +53,6 @@ const AllBook = ({ book }: IProps) => {
         readingList(readingInfo);
       }
     }
-
-    // console.log(e.target.value);
   };
 
   useEffect(() => {
@@ -75,7 +73,6 @@ const AllBook = ({ book }: IProps) => {
     readListData?.modifiedCount,
     readListData?.message,
   ]);
-  console.log(readListData);
 
   return (
     <div key={book._id} className="card shadow-xl">

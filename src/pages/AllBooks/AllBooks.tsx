@@ -95,6 +95,11 @@ const AllBooks = () => {
     reset();
   };
 
+  const splitYear = allBooks?.map(
+    (book: Book) => book.publicationDate.split("-")[2]
+  );
+  const uniqueYears = [...new Set(splitYear)];
+
   if (isLoading) {
     return <Loader></Loader>;
   }
@@ -123,28 +128,27 @@ const AllBooks = () => {
           onChange={handleGenreChange}
           name="genre"
         >
+          {" "}
           <option value="">All Genres</option>
-          <option value="Fantasy">Fantasy</option>
-          <option value="Historical Fiction">Historical Fiction</option>
-          <option value="Dystopian">Dystopian</option>
-          <option value="Science Fiction">Science Fiction</option>
-          <option value="Mystery">Mystery</option>
-          {/* Add more genres as needed */}
+          {allBooks?.map((book: Book) => (
+            <option key={book._id} value={book.genre}>
+              {book.genre}
+            </option>
+          ))}
         </select>
         <select
-          // className="mr-5 select select-bordered max-w-xs"
-          // {...register("publicationYear")}
           className="select select-bordered"
           onChange={handleYearChange}
           name="publicationYear"
         >
-          <option value="">All Years</option>
-          <option value="2023">2023</option>
-          <option value="2022">2022</option>
-          <option value="2021">2021</option>
-          <option value="2009">2009</option>
-          <option value="1993">1993</option>
-          {/* Add more publication years as needed */}
+          <option value="">Publication Year</option>
+          {(uniqueYears as string[])
+            ?.sort()
+            .map((year: string, index: number) => (
+              <option key={index} value={year}>
+                {year}
+              </option>
+            ))}
         </select>
       </div>
       <div className="mt-18 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
