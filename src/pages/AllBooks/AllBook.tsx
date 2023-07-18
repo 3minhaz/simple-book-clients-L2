@@ -1,5 +1,8 @@
 import { useEffect } from "react";
-import { useAddWishListMutation } from "../../redux/hooks/api/apiSlice";
+import {
+  useAddReadingListMutation,
+  useAddWishListMutation,
+} from "../../redux/hooks/api/apiSlice";
 import { useAppSelector } from "../../redux/hooks/useReduxHooks";
 import { Book } from "./AllBooks";
 import { Link } from "react-router-dom";
@@ -13,6 +16,8 @@ const AllBook = ({ book }: IProps) => {
   const email = useAppSelector((state) => state.users.email);
 
   const [wishlist, { data: wishlistData }] = useAddWishListMutation();
+  const [readingList, { data: readListData }] = useAddReadingListMutation();
+
   const handleWishList = (id: string) => {
     const data = {
       email,
@@ -20,17 +25,57 @@ const AllBook = ({ book }: IProps) => {
     };
     wishlist(data);
   };
+
+  const handleReadSoon = (id: string) => {
+    const data = {
+      email,
+      bookId: id,
+    };
+    readingList(data);
+  };
+  const handleReadStatus = (data: {
+    e: React.ChangeEvent<HTMLSelectElement>;
+    id: string;
+  }) => {
+    const status = data.e.target.value;
+    const readingInfo = {
+      email,
+      bookInfo: {
+        bookId: data.id,
+        status: status,
+      },
+    };
+    if (status === "read-soon") {
+      const confirm = window.confirm(
+        "Are you sure , you are changing the status"
+      );
+      if (confirm) {
+        readingList(readingInfo);
+      }
+    }
+
+    // console.log(e.target.value);
+  };
+
   useEffect(() => {
     if (wishlistData?.upsertedCount || wishlistData?.modifiedCount) {
       toast.success("Data added successfully");
     } else if (wishlistData?.message) {
       toast.error("Book already added to Wishlist");
+    } else if (readListData?.upsertedCount || readListData?.modifiedCount) {
+      toast.success("Book added to read-soon successfully");
+    } else if (readListData?.message) {
+      toast.error("Book already to added to ready soon");
     }
   }, [
     wishlistData?.upsertedCount,
     wishlistData?.modifiedCount,
     wishlistData?.message,
+    readListData?.upsertedCount,
+    readListData?.modifiedCount,
+    readListData?.message,
   ]);
+  console.log(readListData);
 
   return (
     <div key={book._id} className="card shadow-xl">
@@ -61,12 +106,24 @@ const AllBook = ({ book }: IProps) => {
           >
             Add to Wishlist
           </p>
-          <p className="btn btn-accent">Read Soon</p>
+          {/* <p
+            onClick={() => {
+              handleReadSoon(book._id);
+            }}
+            className="btn btn-accent"
+          >
+            Read Soon
+          </p> */}
+          <select
+            onChange={(e) => handleReadStatus({ e, id: book._id })}
+            className="select select-bordered w-full mt-2"
+          >
+            <option value="">Select Status</option>
+            <option value="read-soon">Read soon</option>
+            {/* <option value="reading">reading</option>
+            <option value="finished">Finished</option> */}
+          </select>
         </div>
-        {/* <div className="card-actions justify-end">
-        <div className="badge badge-outline">Fashion</div>
-        <div className="badge badge-outline">Products</div>
-      </div> */}
       </div>
     </div>
   );

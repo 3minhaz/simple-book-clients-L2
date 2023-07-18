@@ -46,7 +46,7 @@ const AllBooks = () => {
   useEffect(() => {
     // const filterData = [];
     if (genre) {
-      const filteredByGenre = allBooks.filter(
+      const filteredByGenre = allBooks?.filter(
         (book: Book) => book.genre.toLowerCase() === genre.toLowerCase()
       );
       // filterData.push(...filteredByGenre);
@@ -58,7 +58,7 @@ const AllBooks = () => {
       }
     }
     if (year) {
-      const filteredByYear = allBooks.filter((book: Book) => {
+      const filteredByYear = allBooks?.filter((book: Book) => {
         const publicationYear = book.publicationDate.split("-")[2];
         return publicationYear === year;
       });
@@ -72,7 +72,7 @@ const AllBooks = () => {
       // console.log(filteredByYear, "filtered by year");
     }
     if (genre && year) {
-      const filteredByGenreAndYear = allBooks.filter((book: Book) => {
+      const filteredByGenreAndYear = allBooks?.filter((book: Book) => {
         const publicationYear = book.publicationDate.split("-")[2];
         const publicationGenre = book.genre.toLowerCase();
         return (
@@ -148,7 +148,7 @@ const AllBooks = () => {
         </select>
       </div>
       <div className="mt-18 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {filterData.length > 0
+        {filterData?.length > 0
           ? filterData?.map((book: Book) => (
               <AllBook key={book._id} book={book}></AllBook>
             ))
