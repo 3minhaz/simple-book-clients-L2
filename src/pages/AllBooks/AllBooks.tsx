@@ -42,7 +42,13 @@ const AllBooks = () => {
     dispatch(setGenre(e.target.value));
   };
 
-  const { data: allBooks, isLoading, refetch } = useGetAllBooksQuery(data);
+  const {
+    data: allBooks,
+    isLoading,
+    refetch,
+  } = useGetAllBooksQuery(data, {
+    refetchOnMountOrArgChange: true,
+  });
   useEffect(() => {
     // const filterData = [];
     if (genre) {
@@ -51,7 +57,7 @@ const AllBooks = () => {
       );
       // filterData.push(...filteredByGenre);
       setFilteredData(filteredByGenre);
-      if (filteredByGenre.length === 0) {
+      if (filteredByGenre?.length === 0) {
         toast.error("No result found", {
           duration: 5000,
         });
@@ -63,7 +69,7 @@ const AllBooks = () => {
         return publicationYear === year;
       });
       setFilteredData(filteredByYear);
-      if (filteredByYear.length === 0) {
+      if (filteredByYear?.length === 0) {
         toast.error("No result found", {
           duration: 5000,
         });
@@ -80,7 +86,7 @@ const AllBooks = () => {
         );
       });
       // filterData.push(...filteredByGenreAndYear);
-      if (filteredByGenreAndYear.length === 0) {
+      if (filteredByGenreAndYear?.length === 0) {
         toast.error("No result found", {
           duration: 5000,
         });

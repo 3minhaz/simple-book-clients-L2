@@ -2,14 +2,19 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const api = createApi({
   reducerPath: "api",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000" }),
+  // baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://simple-book-a5-server.vercel.app",
+  }),
   tagTypes: ["books", "wishlist", "reading"],
   endpoints: (builder) => ({
     getTenBooks: builder.query({
       query: () => "/landing-page-books",
+      providesTags: ["books"],
     }),
     getAllBooks: builder.query({
       query: ({ searchTerm }) => `/books?searchTerm=${searchTerm}`,
+      providesTags: ["books"],
     }),
     updateComment: builder.mutation({
       query: ({ id, data }) => ({
@@ -24,6 +29,7 @@ const api = createApi({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: ["books"],
     }),
     deleteBook: builder.mutation({
       query: (id) => ({

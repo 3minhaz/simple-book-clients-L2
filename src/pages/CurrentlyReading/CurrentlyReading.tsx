@@ -5,7 +5,6 @@ import {
   useUpdateReadingStatusMutation,
 } from "../../redux/hooks/api/apiSlice";
 import { useAppSelector } from "../../redux/hooks/useReduxHooks";
-import { Book } from "../AllBooks/AllBooks";
 import { toast } from "react-hot-toast";
 
 const CurrentlyReading = () => {
@@ -38,7 +37,7 @@ const CurrentlyReading = () => {
   if (isLoading) {
     return <Loader></Loader>;
   }
-  console.log(readingBooks);
+
   return (
     <div className="mt-6 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {readingBooks?.message && (

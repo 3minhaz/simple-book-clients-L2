@@ -17,7 +17,6 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    watch,
     reset,
     formState: { errors },
   } = useForm<Inputs>();
@@ -37,6 +36,10 @@ const Login = () => {
       navigate(from, { replace: true });
     }
   }, [email, isLoading, from, navigate]);
+
+  // if (isError) {
+  //   toast.error("User not created, please register");
+  // }
 
   return (
     <div className="flex justify-center items-center h-[600px] ">

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useAppSelector } from "../../redux/hooks/useReduxHooks";
 import {
   useGetWishListBookQuery,
@@ -10,14 +10,12 @@ import { toast } from "react-hot-toast";
 
 const Wishlist = () => {
   const email = useAppSelector((state) => state.users.email);
-  // console.log(email, "..");
+
   const { data: books, isLoading } = useGetWishListBookQuery(email, {
     refetchOnMountOrArgChange: true,
   });
   const [removeWishlist, { data: removeWishList }] =
     useRemoveFromWishListMutation();
-
-  // console.log(data);
 
   const handleRemoveFromWishList = (id: string) => {
     removeWishlist({ id, email });
@@ -28,7 +26,6 @@ const Wishlist = () => {
     }
   }, [removeWishList?.modifiedCount]);
 
-  console.log(books);
   if (isLoading) {
     return <Loader></Loader>;
   }

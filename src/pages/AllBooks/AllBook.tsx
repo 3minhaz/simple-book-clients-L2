@@ -26,13 +26,6 @@ const AllBook = ({ book }: IProps) => {
     wishlist(data);
   };
 
-  const handleReadSoon = (id: string) => {
-    const data = {
-      email,
-      bookId: id,
-    };
-    readingList(data);
-  };
   const handleReadStatus = (data: {
     e: React.ChangeEvent<HTMLSelectElement>;
     id: string;
@@ -72,6 +65,7 @@ const AllBook = ({ book }: IProps) => {
     readListData?.upsertedCount,
     readListData?.modifiedCount,
     readListData?.message,
+    email,
   ]);
 
   return (
@@ -91,36 +85,28 @@ const AllBook = ({ book }: IProps) => {
         <p>Author: {book.author}</p>
         <p>Genre: {book.genre}</p>
         <p>Publication Date: {book.publicationDate}</p>
-        <div>
-          <p className="btn btn-primary mr-2">
-            <Link to={`/books/${book._id}`}>Details</Link>
-          </p>
-          <p
-            onClick={() => {
-              handleWishList(book._id);
-            }}
-            className="btn btn-warning mr-2"
-          >
-            Add to Wishlist
-          </p>
-          {/* <p
-            onClick={() => {
-              handleReadSoon(book._id);
-            }}
-            className="btn btn-accent"
-          >
-            Read Soon
-          </p> */}
-          <select
-            onChange={(e) => handleReadStatus({ e, id: book._id })}
-            className="select select-bordered w-full mt-2"
-          >
-            <option value="">Select Status</option>
-            <option value="read-soon">Read soon</option>
-            {/* <option value="reading">reading</option>
-            <option value="finished">Finished</option> */}
-          </select>
-        </div>
+        <p className="btn btn-primary mr-2">
+          <Link to={`/books/${book._id}`}>Details</Link>
+        </p>
+        {email && (
+          <div className="flex">
+            <p
+              onClick={() => {
+                handleWishList(book._id);
+              }}
+              className="btn btn-warning mr-2"
+            >
+              Add to Wishlist
+            </p>
+            <select
+              onChange={(e) => handleReadStatus({ e, id: book._id })}
+              className="select select-bordered w-full"
+            >
+              <option value="">Select Status</option>
+              <option value="read-soon">Read soon</option>
+            </select>
+          </div>
+        )}
       </div>
     </div>
   );

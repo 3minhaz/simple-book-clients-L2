@@ -15,7 +15,6 @@ const SignUp = () => {
     register,
     handleSubmit,
     reset,
-    watch,
     formState: { errors },
   } = useForm<Inputs>();
   const dispatch = useAppDispatch();

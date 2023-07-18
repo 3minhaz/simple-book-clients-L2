@@ -1,5 +1,3 @@
-import { RouterProvider } from "react-router-dom";
-import router from "./Routes/Routes/Routes.tsx";
 import { useEffect } from "react";
 import { useAppDispatch } from "./redux/hooks/useReduxHooks.ts";
 import { setLoading, setUser } from "./redux/users/user.ts";

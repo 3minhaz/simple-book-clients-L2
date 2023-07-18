@@ -1,9 +1,11 @@
+import { useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {
   useGetSingleBooksQuery,
   useUpdateCommentMutation,
 } from "../../redux/hooks/api/apiSlice";
+import { toast } from "react-hot-toast";
 
 type Inputs = {
   author: string;
@@ -18,16 +20,15 @@ const EditBook = () => {
     register,
     handleSubmit,
     reset,
-    watch,
+
     formState: { errors },
   } = useForm<Inputs>();
   const { id } = useParams();
 
-  const { data, isLoading } = useGetSingleBooksQuery(id);
+  const { data } = useGetSingleBooksQuery(id);
   //   console.log(data);
   //   const dispatch = useAppDispatch();
-  const [updateData, { isLoading: UpdteLoading, isError, isSuccess }] =
-    useUpdateCommentMutation();
+  const [updateData, { data: updateBookData }] = useUpdateCommentMutation();
   const handleLogin: SubmitHandler<Inputs> = (data) => {
     // dispatch(registerUser(data));
     // reset();
@@ -36,11 +37,19 @@ const EditBook = () => {
       data,
     };
     updateData(options);
-    if (isSuccess) {
-      console.log("data updated successfully");
-    }
+    // if (isSuccess) {
+    //   console.log("data updated successfully");
+    // }
     // console.log(data);
   };
+
+  useEffect(() => {
+    if (updateBookData?.modifiedCount) {
+      toast.success("Data update successfully");
+      reset();
+    }
+  }, [updateBookData?.modifiedCount]);
+
   return (
     <div className="flex justify-center items-center h-[600px] ">
       <div className="w-96 p-7">
