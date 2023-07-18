@@ -4,7 +4,7 @@ const api = createApi({
   reducerPath: "api",
   // baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000" }),
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://simple-book-a5-server.vercel.app",
+    baseUrl: "https://simple-book-server.vercel.app",
   }),
   tagTypes: ["books", "wishlist", "reading"],
   endpoints: (builder) => ({

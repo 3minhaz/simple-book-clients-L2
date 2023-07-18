@@ -36,7 +36,7 @@ const Wishlist = () => {
           <h2 className="text-center text-2xl text-bold">{books?.message}</h2>
         </>
       )}
-      {books.length > 0 &&
+      {books?.length > 0 &&
         books?.map((book: Book) => (
           <div key={book._id} className="card shadow-xl">
             <figure className="w-full h-80">
