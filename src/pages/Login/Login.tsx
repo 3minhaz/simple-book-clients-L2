@@ -7,6 +7,7 @@ import {
 } from "../../redux/hooks/useReduxHooks";
 import { loginUser } from "../../redux/users/user";
 import { useEffect } from "react";
+import { toast } from "react-hot-toast";
 
 type Inputs = {
   email: string;
@@ -22,7 +23,9 @@ const Login = () => {
   } = useForm<Inputs>();
   const location = useLocation();
   const navigate = useNavigate();
-  const { email, isLoading } = useAppSelector((state: any) => state.users);
+  const { email, isLoading, isError, error } = useAppSelector(
+    (state: any) => state.users
+  );
   const from = location.state?.from?.pathname || "/";
 
   const dispatch = useAppDispatch();
@@ -34,6 +37,7 @@ const Login = () => {
   useEffect(() => {
     if (email && !isLoading) {
       navigate(from, { replace: true });
+      toast.success("Login Successfull");
     }
   }, [email, isLoading, from, navigate]);
 
@@ -87,6 +91,7 @@ const Login = () => {
             type="submit"
           />
         </form>
+        {isError && <p className="text-red-500 mt-2">{error}</p>}
         <p className="mt-4">
           New to Book Center?{" "}
           <Link to="/signup" className="text-secondary">

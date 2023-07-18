@@ -6,6 +6,7 @@ import {
   useAppSelector,
 } from "../../redux/hooks/useReduxHooks";
 import { registerUser } from "../../redux/users/user";
+import { toast } from "react-hot-toast";
 
 type Inputs = {
   name: string;
@@ -20,7 +21,9 @@ const SignUp = () => {
     reset,
     formState: { errors },
   } = useForm<Inputs>();
-  const { email, isLoading } = useAppSelector((state) => state.users);
+  const { email, isLoading, isError, error } = useAppSelector(
+    (state) => state.users
+  );
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const handleSignUp: SubmitHandler<Inputs> = (data) => {
@@ -31,6 +34,7 @@ const SignUp = () => {
   useEffect(() => {
     if (email && !isLoading) {
       navigate("/");
+      toast.success("Sign up successful");
     }
   }, [email, isLoading, navigate]);
 
@@ -94,6 +98,7 @@ const SignUp = () => {
             type="submit"
           />
         </form>
+        {isError && <p className="text-red-500 mt-2">{error}</p>}
         <p className="mt-4">
           Already Registered?{" "}
           <Link to="/login" className="text-secondary">
