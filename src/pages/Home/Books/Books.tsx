@@ -3,7 +3,7 @@ import Loader from "../../../components/Loader";
 import { Link } from "react-router-dom";
 
 const Books = () => {
-  const { data: books, isLoading } = useGetTenBooksQuery(undefined, {
+  const { data: books, isLoading } = useGetTenBooksQuery({
     refetchOnMountOrArgChange: true,
   });
 

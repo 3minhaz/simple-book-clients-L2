@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom";
-
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useAppDispatch } from "../../redux/hooks/useReduxHooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../redux/hooks/useReduxHooks";
 import { registerUser } from "../../redux/users/user";
 
 type Inputs = {
@@ -17,18 +20,26 @@ const SignUp = () => {
     reset,
     formState: { errors },
   } = useForm<Inputs>();
+  const { email, isLoading } = useAppSelector((state) => state.users);
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const handleLogin: SubmitHandler<Inputs> = (data) => {
+  const handleSignUp: SubmitHandler<Inputs> = (data) => {
     dispatch(registerUser(data));
     reset();
-    console.log(data);
   };
+
+  useEffect(() => {
+    if (email && !isLoading) {
+      navigate("/");
+    }
+  }, [email, isLoading, navigate]);
+
   return (
     <div className="flex justify-center items-center h-[600px] ">
       <div className="w-96 p-7">
         <h2 className="text-xl text-center">Sign Up</h2>
         <form
-          onSubmit={handleSubmit(handleLogin)}
+          onSubmit={handleSubmit(handleSignUp)}
           className="grid gap-6 grid-cols-1"
         >
           <div className="form-control w-full max-w-xs">

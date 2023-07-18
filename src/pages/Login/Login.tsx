@@ -22,7 +22,7 @@ const Login = () => {
   } = useForm<Inputs>();
   const location = useLocation();
   const navigate = useNavigate();
-  const { email, isLoading } = useAppSelector((state) => state.users);
+  const { email, isLoading } = useAppSelector((state: any) => state.users);
   const from = location.state?.from?.pathname || "/";
 
   const dispatch = useAppDispatch();
@@ -36,10 +36,6 @@ const Login = () => {
       navigate(from, { replace: true });
     }
   }, [email, isLoading, from, navigate]);
-
-  // if (isError) {
-  //   toast.error("User not created, please register");
-  // }
 
   return (
     <div className="flex justify-center items-center h-[600px] ">
