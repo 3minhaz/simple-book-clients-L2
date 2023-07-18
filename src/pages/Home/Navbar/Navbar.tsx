@@ -42,23 +42,40 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <Link to="/login">
-              <li>Login</li>
-            </Link>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
+            {!user && (
+              <>
                 <li>
-                  <a>Submenu 1</a>
+                  <Link to="/login">Login</Link>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <Link to="/signup">Sign up</Link>
                 </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+              </>
+            )}{" "}
+            {user && (
+              // <li onClick={() => handleLogout()}>
+              //   <Link to="/login">Logout</Link>
+              // </li>
+              <>
+                <button onClick={() => navigate("/wishlist")} className="mr-4">
+                  Wishlist
+                </button>
+                <button
+                  onClick={() => navigate("/currently-reading")}
+                  className="mr-4"
+                >
+                  Currently Reading
+                </button>
+                <button
+                  onClick={() => navigate("/add-new-book")}
+                  className="mr-4"
+                >
+                  Add New Book
+                </button>
+                <button className="mr-4">{user}</button>
+                <button onClick={() => handleLogout()}>logout</button>
+              </>
+            )}
           </ul>
         </div>
         <Link to="/">Books Center</Link>
